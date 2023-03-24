@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { BsSearch } from 'react-icons/bs';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
-export const SearchBar = ({ handleSubmit }) => {
+export const SearchBar = () => {
   const [inputValue, setInputValue] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams('');
+  const navigate = useNavigate();
 
   const handleChange = e => {
     setInputValue(e.target.value);
@@ -16,9 +19,11 @@ export const SearchBar = ({ handleSubmit }) => {
     if (inputValue.trim() === '') {
       return alert('Необхідно ввести слово для пошуку');
     }
+    // setSearchParams({ query: inputValue });
+    navigate(`/?query=${inputValue}`);
 
-    handleSubmit(inputValue);
-    console.log(inputValue);
+    // handleSubmit(inputValue);
+    // console.log(inputValue);
     setInputValue('');
   };
 

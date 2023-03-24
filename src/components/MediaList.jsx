@@ -9,5 +9,5 @@ export const MediaList = () => {
     getMedia().then(res => setMediaList(res));
   }, []);
 
-  return <List list={mediaList} type="movie" />;
+  return <List list={mediaList} />;
 };

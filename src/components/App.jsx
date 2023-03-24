@@ -17,14 +17,15 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="/?query=:value" element={<SearchList />} />
 
         <Route path="/movie" element={<Movie />} />
         <Route path="/movie/:id" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
-        <Route path="/series" element={<Series />} />
-        <Route path="/series/:id" element={<TVdetails />}>
+        <Route path="/tv" element={<Series />} />
+        <Route path="/tv/:id" element={<TVdetails />}>
           <Route path="cast" element={<CastTV />} />
           <Route path="reviews" element={<ReviewsTV />} />
         </Route>

@@ -11,5 +11,5 @@ export const MovieList = () => {
     console.log(getMovie());
   }, []);
 
-  return <List list={movieList} type="movie" />;
+  return <List list={movieList} />;
 };

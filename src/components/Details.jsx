@@ -4,11 +4,9 @@ import { ImFilm } from 'react-icons/im';
 import styled from 'styled-components';
 
 export const Details = ({ card }) => {
+  console.log(card);
   return (
     <main>
-      {/* <Button>
-        <Link to="/">Go Back</Link>
-      </Button> */}
       <Container>
         <CardWrapper>
           <Img
@@ -19,12 +17,19 @@ export const Details = ({ card }) => {
         <CardWrapper>
           <TitleName>{card.name}</TitleName>
           <TitleName>{card.title}</TitleName>
-          <h3>{card.tagline}</h3>
+          <H3>{card.tagline}</H3>
+
+          <p>IMBD {card.vote_average}</p>
+          <span>Release date: {card.release_date}</span>
+          {card.budget !== 0 && card.budget && <p>Budget {card.budget}$</p>}
+          <Site href={card.homepage} target="_blank">
+            Official website
+          </Site>
           <p>{card.overview}</p>
           <ul>
             <Li>
               <GiFilmProjector />
-              <LinkSt to="cast">Cast</LinkSt>
+              <LinkSt to="cast#cast">Cast</LinkSt>
             </Li>
             <Li>
               <ImFilm />
@@ -81,8 +86,21 @@ const CardWrapper = styled.div`
 
 const TitleName = styled.h1`
   padding: 4px;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: black;
+  /* font-size: large; */
+`;
+const H3 = styled.h3`
+  padding: 4px;
+  padding-top: 0;
   margin-top: 8px;
   margin-bottom: 0;
   color: black;
   /* font-size: large; */
+`;
+const Site = styled.a`
+  margin-top: 8px;
+  margin-bottom: 0;
 `;

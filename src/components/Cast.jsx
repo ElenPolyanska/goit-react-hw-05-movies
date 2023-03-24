@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ImCool } from 'react-icons/im';
 import { castById } from 'fetch';
@@ -7,13 +7,19 @@ import styled from 'styled-components';
 export const Cast = () => {
   const { id } = useParams();
   const [cast, setCast] = useState([]);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (cast.length > 0)
+      ref?.current?.scrollIntoView({ behavior: 'smooth', inline: 'nearest' });
+  }, [cast]);
 
   useEffect(() => {
     castById(id).then(res => setCast(res));
   }, [id]);
 
   return (
-    <div>
+    <div ref={ref}>
       {cast ? (
         <>
           <h3>Cast</h3>

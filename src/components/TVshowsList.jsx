@@ -10,5 +10,5 @@ export const TVshowsList = () => {
     console.log(getTVshows());
   }, []);
 
-  return <List list={tvshowsList} type="series" />;
+  return <List list={tvshowsList} />;
 };

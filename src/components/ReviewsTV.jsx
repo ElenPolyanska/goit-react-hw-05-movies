@@ -1,17 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { reviewsTVById } from 'fetch';
 
 export const ReviewsTV = () => {
   const { id } = useParams();
   const [reviews, setReviews] = useState([]);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (reviews.length > 0)
+      ref?.current?.scrollIntoView({ behavior: 'smooth', inline: 'nearest' });
+  }, [reviews]);
 
   useEffect(() => {
     reviewsTVById(id).then(res => setReviews(res));
   }, [id]);
 
   return (
-    <div>
+    <div ref={ref}>
       {reviews.length !== 0 ? (
         <>
           <h3>Reviews</h3>

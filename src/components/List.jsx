@@ -1,22 +1,26 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const List = ({ list, type }) => {
+export const List = ({ list }) => {
+  console.log(list);
   return (
     <div>
-      {/* <h1>Trending Today</h1> */}
       <Container>
-        {list.map(({ id, title, name, backdrop_path }) => (
-          <CardWrapper key={id}>
-            <LinkStyled to={`/${type}/${id}`}>
-              <Img
-                src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
-                alt=""
-              />
-              <TitleName>{title || name}</TitleName>
-            </LinkStyled>
-          </CardWrapper>
-        ))}
+        {list.map(
+          ({ id, title, name, backdrop_path, media_type = 'movie' }) => (
+            <CardWrapper key={id}>
+              {
+                <LinkStyled to={`/${media_type}/${id}`}>
+                  <Img
+                    src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
+                    alt=""
+                  />
+                  <TitleName>{title || name}</TitleName>
+                </LinkStyled>
+              }
+            </CardWrapper>
+          )
+        )}
       </Container>
     </div>
   );
@@ -33,6 +37,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);
   gap: 16px;
+  margin-bottom: 28px;
 `;
 
 const CardWrapper = styled.div`

@@ -1,47 +1,25 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-// import { SearchBar } from './SearchBar';
+import { SearchBar } from './SearchBar';
 // import { useState, useEffect } from 'react';
 // import { getMovieByName } from 'fetch';
 // import { useSearchParams } from 'react-router-dom';
 // import { specialFuc } from 'pages/SearchList';
 
 export const Header = () => {
-  // const handleSubmit = value => {
-  //   specialFuc(value);
-  //   console.log(value);
-
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate(-1);
-  };
-
   return (
     <HeaderStyled>
       <Link to="/" end>
         Home
       </Link>
       <Link to="/movie">Movie</Link>
-      <Link to="/series">TV Series</Link>
-      <Button onClick={handleClick}>Go back</Button>
-      {/* <SearchBar /> */}
+      <Link to="/tv">TV Series</Link>
+
+      <SearchBar />
     </HeaderStyled>
   );
 };
-
-const Button = styled.button`
-  background-color: transparent;
-  border: 1px solid #909696;
-  border-radius: 16px;
-  font-size: x-small;
-  padding: 6px;
-  margin: 0 8px;
-  :hover,
-  :focus {
-    background-color: #00ffdd;
-  }
-`;
 
 const HeaderStyled = styled.header`
   display: flex;
