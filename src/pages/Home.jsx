@@ -1,4 +1,4 @@
-import { MediaList } from '../components/MediaList';
+// import { MediaList } from '../components/MediaList';
 import { SearchList } from './SearchList';
 
 export const Home = () => {

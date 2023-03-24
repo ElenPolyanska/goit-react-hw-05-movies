@@ -16,7 +16,7 @@ import styled from 'styled-components';
 
 export const SearchList = () => {
   const [movies, setMovies] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams('');
+  const [searchParams] = useSearchParams('');
   const query = searchParams.get('query');
 
   // const handleSubmit = value => {

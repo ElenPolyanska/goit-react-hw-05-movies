@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { BsSearch } from 'react-icons/bs';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const SearchBar = () => {
   const [inputValue, setInputValue] = useState('');
-  const [searchParams, setSearchParams] = useSearchParams('');
+  // const [searchParams, setSearchParams] = useSearchParams('');
   const navigate = useNavigate();
 
   const handleChange = e => {
