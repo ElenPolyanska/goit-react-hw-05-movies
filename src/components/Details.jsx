@@ -6,9 +6,9 @@ import styled from 'styled-components';
 export const Details = ({ card }) => {
   return (
     <main>
-      <Button>
+      {/* <Button>
         <Link to="/">Go Back</Link>
-      </Button>
+      </Button> */}
       <Container>
         <CardWrapper>
           <Img
@@ -40,16 +40,16 @@ export const Details = ({ card }) => {
   );
 };
 
-const Button = styled.button`
-  background-color: transparent;
-  border: 1px solid #909696;
-  border-radius: 6px;
-  padding: 6px;
-  :hover,
-  :focus {
-    background-color: #00ffdd;
-  }
-`;
+// const Button = styled.button`
+//   background-color: transparent;
+//   border: 1px solid #909696;
+//   border-radius: 6px;
+//   padding: 6px;
+//   :hover,
+//   :focus {
+//     background-color: #00ffdd;
+//   }
+// `;
 
 const LinkSt = styled(Link)`
   margin: 4px 8px;
