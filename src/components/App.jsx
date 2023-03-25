@@ -9,7 +9,7 @@ import { Reviews } from './Reviews';
 import { ReviewsTV } from './ReviewsTV';
 import { SearchList } from 'pages/SearchList';
 import { TVdetails } from 'pages/TVdetails';
-// import { MediaDetails } from 'pages/MediaDetails';
+
 import { Series } from 'pages/Series';
 
 export const App = () => {
@@ -17,8 +17,6 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/?query=:value" element={<SearchList />} />
-
         <Route path="/movie" element={<Movie />} />
         <Route path="/movie/:id" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
@@ -29,9 +27,7 @@ export const App = () => {
           <Route path="cast" element={<CastTV />} />
           <Route path="reviews" element={<ReviewsTV />} />
         </Route>
-
         <Route path="/search" element={<SearchList />} />
-
         <Route path="*" element={<Home />} />
       </Route>
     </Routes>
